@@ -3,7 +3,9 @@ from fastapi.responses import HTMLResponse, RedirectResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from datetime import datetime, timezone
+from zoneinfo import ZoneInfo
 import os
+import traceback
 
 from app.database import get_supabase, get_supabase_admin
 from app.auth import (
@@ -14,6 +16,28 @@ app = FastAPI(title="WC Predictions")
 
 app.mount("/static", StaticFiles(directory=os.path.join(os.path.dirname(__file__), "static")), name="static")
 templates = Jinja2Templates(directory=os.path.join(os.path.dirname(__file__), "templates"))
+
+EGYPT_TZ = ZoneInfo("Africa/Cairo")
+
+def egypt_time(utc_iso: str) -> str:
+    """Convert UTC ISO datetime string to Egypt time (UTC+3)."""
+    try:
+        dt = datetime.fromisoformat(utc_iso.replace("Z", "+00:00"))
+        return dt.astimezone(EGYPT_TZ).strftime("%d %b %Y, %I:%M %p")
+    except Exception:
+        return utc_iso
+
+templates.env.filters["egypt_time"] = egypt_time
+
+
+@app.exception_handler(Exception)
+async def global_exception_handler(request: Request, exc: Exception):
+    traceback.print_exc()
+    return templates.TemplateResponse("error.html", {
+        "request": request,
+        "user": get_current_user(request),
+        "error": "Something went wrong. Please try again later.",
+    }, status_code=500)
 
 
 def get_user_context(request: Request) -> dict:
@@ -106,45 +130,42 @@ async def home(request: Request):
     user = get_current_user(request)
     sb = get_supabase()
 
-    now = datetime.now(timezone.utc).isoformat()
+    now = datetime.now(timezone.utc)
 
-    matches_resp = sb.table("matches").select(
-        "id, match_datetime, stage, group_letter, venue, status,"
-        "home_team:teams!matches_home_team_id_fkey(id, name, flag_emoji),"
-        "away_team:teams!matches_away_team_id_fkey(id, name, flag_emoji)"
-    ).order("match_datetime", desc=False).execute()
-
-    matches = matches_resp.data if matches_resp.data else []
+    try:
+        matches_resp = sb.table("matches").select(
+            "id, match_datetime, stage, group_letter, venue, status,"
+            "home_team:teams!matches_home_team_id_fkey(id, name, flag_emoji),"
+            "away_team:teams!matches_away_team_id_fkey(id, name, flag_emoji)"
+        ).order("match_datetime", desc=False).execute()
+        matches = matches_resp.data if matches_resp.data else []
+    except Exception:
+        matches = []
 
     predictions = {}
     if user:
-        pred_resp = sb.table("predictions").select("match_id").eq("user_id", user["id"]).execute()
-        if pred_resp.data:
-            predictions = {p["match_id"]: True for p in pred_resp.data}
+        try:
+            pred_resp = sb.table("predictions").select("match_id").eq("user_id", user["id"]).execute()
+            if pred_resp.data:
+                predictions = {p["match_id"]: True for p in pred_resp.data}
+        except Exception:
+            predictions = {}
 
     upcoming = []
-    in_progress = []
-    finished = []
     for m in matches:
         match_dt = datetime.fromisoformat(m["match_datetime"].replace("Z", "+00:00"))
+        if match_dt < now:
+            continue
         m["home_team"] = m.get("home_team") or {"name": "TBD", "flag_emoji": ""}
         m["away_team"] = m.get("away_team") or {"name": "TBD", "flag_emoji": ""}
         m["has_prediction"] = predictions.get(m["id"], False)
-
-        if m["status"] == "finished":
-            finished.append(m)
-        elif m["status"] == "live":
-            in_progress.append(m)
-        else:
-            upcoming.append(m)
+        upcoming.append(m)
 
     return templates.TemplateResponse("index.html", {
         "request": request,
         "user": user,
         "upcoming": upcoming,
-        "in_progress": in_progress,
-        "finished": finished,
-        "now": datetime.now(timezone.utc).isoformat(),
+        "now": now.isoformat(),
     })
 
 
@@ -158,40 +179,45 @@ async def predict_page(request: Request, match_id: int):
 
     sb = get_supabase()
 
-    match_resp = sb.table("matches").select(
-        "id, match_datetime, stage, group_letter, venue, status,"
-        "home_team:teams!matches_home_team_id_fkey(id, name, flag_emoji),"
-        "away_team:teams!matches_away_team_id_fkey(id, name, flag_emoji)"
-    ).eq("id", match_id).single().execute()
+    try:
+        match_resp = sb.table("matches").select(
+            "id, match_datetime, stage, group_letter, venue, status,"
+            "home_team:teams!matches_home_team_id_fkey(id, name, flag_emoji),"
+            "away_team:teams!matches_away_team_id_fkey(id, name, flag_emoji)"
+        ).eq("id", match_id).single().execute()
 
-    if not match_resp.data:
-        raise HTTPException(status_code=404, detail="Match not found")
+        if not match_resp.data:
+            raise HTTPException(status_code=404, detail="Match not found")
 
-    match = match_resp.data
-    match["home_team"] = match.get("home_team") or {"name": "TBD", "flag_emoji": ""}
-    match["away_team"] = match.get("away_team") or {"name": "TBD", "flag_emoji": ""}
+        match = match_resp.data
+        match["home_team"] = match.get("home_team") or {"name": "TBD", "flag_emoji": ""}
+        match["away_team"] = match.get("away_team") or {"name": "TBD", "flag_emoji": ""}
 
-    match_dt = datetime.fromisoformat(match["match_datetime"].replace("Z", "+00:00"))
-    now = datetime.now(timezone.utc)
-    locked = now >= match_dt or match["status"] in ("live", "finished")
+        match_dt = datetime.fromisoformat(match["match_datetime"].replace("Z", "+00:00"))
+        now = datetime.now(timezone.utc)
+        locked = now >= match_dt or match["status"] in ("live", "finished")
 
-    existing = None
-    pred_resp = sb.table("predictions").select("*").eq("user_id", user["id"]).eq("match_id", match_id).execute()
-    if pred_resp.data:
-        existing = pred_resp.data[0]
+        existing = None
+        pred_resp = sb.table("predictions").select("*").eq("user_id", user["id"]).eq("match_id", match_id).execute()
+        if pred_resp.data:
+            existing = pred_resp.data[0]
 
-    home_players_resp = sb.table("players").select("id, name, position").eq("team_id", match["home_team"]["id"]).order("name").execute()
-    away_players_resp = sb.table("players").select("id, name, position").eq("team_id", match["away_team"]["id"]).order("name").execute()
+        home_players_resp = sb.table("players").select("id, name, position").eq("team_id", match["home_team"]["id"]).order("name").execute()
+        away_players_resp = sb.table("players").select("id, name, position").eq("team_id", match["away_team"]["id"]).order("name").execute()
 
-    return templates.TemplateResponse("predict.html", {
-        "request": request,
-        "user": user,
-        "match": match,
-        "home_players": home_players_resp.data or [],
-        "away_players": away_players_resp.data or [],
-        "existing": existing,
-        "locked": locked,
-    })
+        return templates.TemplateResponse("predict.html", {
+            "request": request,
+            "user": user,
+            "match": match,
+            "home_players": home_players_resp.data or [],
+            "away_players": away_players_resp.data or [],
+            "existing": existing,
+            "locked": locked,
+        })
+    except HTTPException:
+        raise
+    except Exception:
+        return RedirectResponse(url="/", status_code=303)
 
 
 @app.post("/matches/{match_id}/predict")
@@ -219,15 +245,20 @@ async def submit_prediction(
         raise HTTPException(status_code=400, detail="If you choose away win, away score must be greater")
 
     sb = get_supabase()
-
-    match_resp = sb.table("matches").select("match_datetime, status").eq("id", match_id).single().execute()
-    if not match_resp.data:
-        raise HTTPException(status_code=404, detail="Match not found")
-
-    match_dt = datetime.fromisoformat(match_resp.data["match_datetime"].replace("Z", "+00:00"))
     now = datetime.now(timezone.utc)
-    if now >= match_dt or match_resp.data["status"] in ("live", "finished"):
-        raise HTTPException(status_code=400, detail="Prediction is locked for this match")
+
+    try:
+        match_resp = sb.table("matches").select("match_datetime, status").eq("id", match_id).single().execute()
+        if not match_resp.data:
+            raise HTTPException(status_code=404, detail="Match not found")
+
+        match_dt = datetime.fromisoformat(match_resp.data["match_datetime"].replace("Z", "+00:00"))
+        if now >= match_dt or match_resp.data["status"] in ("live", "finished"):
+            raise HTTPException(status_code=400, detail="Prediction is locked for this match")
+    except HTTPException:
+        raise
+    except Exception:
+        raise HTTPException(status_code=503, detail="Could not connect to database")
 
     home_scorers_list = [s.strip() for s in home_scorers.split(",") if s.strip()] if home_scorers else []
     away_scorers_list = [s.strip() for s in away_scorers.split(",") if s.strip()] if away_scorers else []
@@ -243,12 +274,15 @@ async def submit_prediction(
         "updated_at": now.isoformat(),
     }
 
-    existing = sb.table("predictions").select("id").eq("user_id", user["id"]).eq("match_id", match_id).execute()
-    if existing.data:
-        sb.table("predictions").update(prediction_data).eq("id", existing.data[0]["id"]).execute()
-    else:
-        prediction_data["created_at"] = now.isoformat()
-        sb.table("predictions").insert(prediction_data).execute()
+    try:
+        existing = sb.table("predictions").select("id").eq("user_id", user["id"]).eq("match_id", match_id).execute()
+        if existing.data:
+            sb.table("predictions").update(prediction_data).eq("id", existing.data[0]["id"]).execute()
+        else:
+            prediction_data["created_at"] = now.isoformat()
+            sb.table("predictions").insert(prediction_data).execute()
+    except Exception:
+        raise HTTPException(status_code=503, detail="Could not save prediction")
 
     return RedirectResponse(url="/", status_code=303)
 
@@ -263,14 +297,16 @@ async def my_predictions(request: Request):
 
     sb = get_supabase()
 
-    pred_resp = sb.table("predictions").select(
-        "id, chosen_winner, home_score, away_score, home_scorers, away_scorers, created_at,"
-        "match:matches(id, match_datetime, status,"
-        "  home_team:teams!matches_home_team_id_fkey(name, flag_emoji),"
-        "  away_team:teams!matches_away_team_id_fkey(name, flag_emoji))"
-    ).eq("user_id", user["id"]).order("created_at", desc=True).execute()
-
-    predictions = pred_resp.data or []
+    try:
+        pred_resp = sb.table("predictions").select(
+            "id, chosen_winner, home_score, away_score, home_scorers, away_scorers, created_at,"
+            "match:matches(id, match_datetime, status,"
+            "  home_team:teams!matches_home_team_id_fkey(name, flag_emoji),"
+            "  away_team:teams!matches_away_team_id_fkey(name, flag_emoji))"
+        ).eq("user_id", user["id"]).order("created_at", desc=True).execute()
+        predictions = pred_resp.data or []
+    except Exception:
+        predictions = []
 
     return templates.TemplateResponse("predictions.html", {
         "request": request,
@@ -286,11 +322,13 @@ async def leaderboard(request: Request):
     user = get_current_user(request)
     sb = get_supabase()
 
-    scores_resp = sb.table("user_scores").select(
-        "user_id, total_points, updated_at"
-    ).order("total_points", desc=True).execute()
-
-    scores = scores_resp.data or []
+    try:
+        scores_resp = sb.table("user_scores").select(
+            "user_id, total_points, updated_at"
+        ).order("total_points", desc=True).execute()
+        scores = scores_resp.data or []
+    except Exception:
+        scores = []
 
     display_names = []
     for s in scores:

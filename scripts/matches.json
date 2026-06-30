@@ -1,0 +1,1318 @@
+[
+  {
+    "home_team": "Mexico",
+    "away_team": "South Africa",
+    "date": "11 June 2026",
+    "time": "1:00 p.m.",
+    "group": "A",
+    "stage": "Group Stage",
+    "home_score": 2,
+    "away_score": 0
+  },
+  {
+    "home_team": "South Korea",
+    "away_team": "Czech Republic",
+    "date": "11 June 2026",
+    "time": "8:00 p.m.",
+    "group": "A",
+    "stage": "Group Stage",
+    "home_score": 2,
+    "away_score": 1
+  },
+  {
+    "home_team": "Czech Republic",
+    "away_team": "South Africa",
+    "date": "18 June 2026",
+    "time": "12:00 p.m.",
+    "group": "A",
+    "stage": "Group Stage",
+    "home_score": 1,
+    "away_score": 1
+  },
+  {
+    "home_team": "Mexico",
+    "away_team": "South Korea",
+    "date": "18 June 2026",
+    "time": "7:00 p.m.",
+    "group": "A",
+    "stage": "Group Stage",
+    "home_score": 1,
+    "away_score": 0
+  },
+  {
+    "home_team": "Czech Republic",
+    "away_team": "Mexico",
+    "date": "24 June 2026",
+    "time": "7:00 p.m.",
+    "group": "A",
+    "stage": "Group Stage",
+    "home_score": 0,
+    "away_score": 3
+  },
+  {
+    "home_team": "South Africa",
+    "away_team": "South Korea",
+    "date": "24 June 2026",
+    "time": "7:00 p.m.",
+    "group": "A",
+    "stage": "Group Stage",
+    "home_score": 1,
+    "away_score": 0
+  },
+  {
+    "home_team": "Canada",
+    "away_team": "Bosnia and Herzegovina",
+    "date": "12 June 2026",
+    "time": "3:00 p.m.",
+    "group": "B",
+    "stage": "Group Stage",
+    "home_score": 1,
+    "away_score": 1
+  },
+  {
+    "home_team": "Qatar",
+    "away_team": "Switzerland",
+    "date": "13 June 2026",
+    "time": "12:00 p.m.",
+    "group": "B",
+    "stage": "Group Stage",
+    "home_score": 1,
+    "away_score": 1
+  },
+  {
+    "home_team": "Switzerland",
+    "away_team": "Bosnia and Herzegovina",
+    "date": "18 June 2026",
+    "time": "12:00 p.m.",
+    "group": "B",
+    "stage": "Group Stage",
+    "home_score": 4,
+    "away_score": 1
+  },
+  {
+    "home_team": "Canada",
+    "away_team": "Qatar",
+    "date": "18 June 2026",
+    "time": "3:00 p.m.",
+    "group": "B",
+    "stage": "Group Stage",
+    "home_score": 6,
+    "away_score": 0
+  },
+  {
+    "home_team": "Switzerland",
+    "away_team": "Canada",
+    "date": "24 June 2026",
+    "time": "12:00 p.m.",
+    "group": "B",
+    "stage": "Group Stage",
+    "home_score": 2,
+    "away_score": 1
+  },
+  {
+    "home_team": "Bosnia and Herzegovina",
+    "away_team": "Qatar",
+    "date": "24 June 2026",
+    "time": "12:00 p.m.",
+    "group": "B",
+    "stage": "Group Stage",
+    "home_score": 3,
+    "away_score": 1
+  },
+  {
+    "home_team": "Brazil",
+    "away_team": "Morocco",
+    "date": "13 June 2026",
+    "time": "6:00 p.m.",
+    "group": "C",
+    "stage": "Group Stage",
+    "home_score": 1,
+    "away_score": 1
+  },
+  {
+    "home_team": "Haiti",
+    "away_team": "Scotland",
+    "date": "13 June 2026",
+    "time": "9:00 p.m.",
+    "group": "C",
+    "stage": "Group Stage",
+    "home_score": 0,
+    "away_score": 1
+  },
+  {
+    "home_team": "Scotland",
+    "away_team": "Morocco",
+    "date": "19 June 2026",
+    "time": "6:00 p.m.",
+    "group": "C",
+    "stage": "Group Stage",
+    "home_score": 0,
+    "away_score": 1
+  },
+  {
+    "home_team": "Brazil",
+    "away_team": "Haiti",
+    "date": "19 June 2026",
+    "time": "8:30 p.m.",
+    "group": "C",
+    "stage": "Group Stage",
+    "home_score": 3,
+    "away_score": 0
+  },
+  {
+    "home_team": "Scotland",
+    "away_team": "Brazil",
+    "date": "24 June 2026",
+    "time": "6:00 p.m.",
+    "group": "C",
+    "stage": "Group Stage",
+    "home_score": 0,
+    "away_score": 3
+  },
+  {
+    "home_team": "Morocco",
+    "away_team": "Haiti",
+    "date": "24 June 2026",
+    "time": "6:00 p.m.",
+    "group": "C",
+    "stage": "Group Stage",
+    "home_score": 4,
+    "away_score": 2
+  },
+  {
+    "home_team": "United States",
+    "away_team": "Paraguay",
+    "date": "12 June 2026",
+    "time": "6:00 p.m.",
+    "group": "D",
+    "stage": "Group Stage",
+    "home_score": 4,
+    "away_score": 1
+  },
+  {
+    "home_team": "Australia",
+    "away_team": "Turkey",
+    "date": "13 June 2026",
+    "time": "9:00 p.m.",
+    "group": "D",
+    "stage": "Group Stage",
+    "home_score": 2,
+    "away_score": 0
+  },
+  {
+    "home_team": "United States",
+    "away_team": "Australia",
+    "date": "19 June 2026",
+    "time": "12:00 p.m.",
+    "group": "D",
+    "stage": "Group Stage",
+    "home_score": 2,
+    "away_score": 0
+  },
+  {
+    "home_team": "Turkey",
+    "away_team": "Paraguay",
+    "date": "19 June 2026",
+    "time": "8:00 p.m.",
+    "group": "D",
+    "stage": "Group Stage",
+    "home_score": 0,
+    "away_score": 1
+  },
+  {
+    "home_team": "Turkey",
+    "away_team": "United States",
+    "date": "25 June 2026",
+    "time": "7:00 p.m.",
+    "group": "D",
+    "stage": "Group Stage",
+    "home_score": 3,
+    "away_score": 2
+  },
+  {
+    "home_team": "Paraguay",
+    "away_team": "Australia",
+    "date": "25 June 2026",
+    "time": "7:00 p.m.",
+    "group": "D",
+    "stage": "Group Stage",
+    "home_score": 0,
+    "away_score": 0
+  },
+  {
+    "home_team": "Germany",
+    "away_team": "Curaçao",
+    "date": "14 June 2026",
+    "time": "12:00 p.m.",
+    "group": "E",
+    "stage": "Group Stage",
+    "home_score": 7,
+    "away_score": 1
+  },
+  {
+    "home_team": "Ivory Coast",
+    "away_team": "Ecuador",
+    "date": "14 June 2026",
+    "time": "7:00 p.m.",
+    "group": "E",
+    "stage": "Group Stage",
+    "home_score": 1,
+    "away_score": 0
+  },
+  {
+    "home_team": "Germany",
+    "away_team": "Ivory Coast",
+    "date": "20 June 2026",
+    "time": "4:00 p.m.",
+    "group": "E",
+    "stage": "Group Stage",
+    "home_score": 2,
+    "away_score": 1
+  },
+  {
+    "home_team": "Ecuador",
+    "away_team": "Curaçao",
+    "date": "20 June 2026",
+    "time": "7:00 p.m.",
+    "group": "E",
+    "stage": "Group Stage",
+    "home_score": 0,
+    "away_score": 0
+  },
+  {
+    "home_team": "Curaçao",
+    "away_team": "Ivory Coast",
+    "date": "25 June 2026",
+    "time": "4:00 p.m.",
+    "group": "E",
+    "stage": "Group Stage",
+    "home_score": 0,
+    "away_score": 2
+  },
+  {
+    "home_team": "Ecuador",
+    "away_team": "Germany",
+    "date": "25 June 2026",
+    "time": "4:00 p.m.",
+    "group": "E",
+    "stage": "Group Stage",
+    "home_score": 2,
+    "away_score": 1
+  },
+  {
+    "home_team": "Netherlands",
+    "away_team": "Japan",
+    "date": "14 June 2026",
+    "time": "3:00 p.m.",
+    "group": "F",
+    "stage": "Group Stage",
+    "home_score": 2,
+    "away_score": 2
+  },
+  {
+    "home_team": "Sweden",
+    "away_team": "Tunisia",
+    "date": "14 June 2026",
+    "time": "8:00 p.m.",
+    "group": "F",
+    "stage": "Group Stage",
+    "home_score": 5,
+    "away_score": 1
+  },
+  {
+    "home_team": "Netherlands",
+    "away_team": "Sweden",
+    "date": "20 June 2026",
+    "time": "12:00 p.m.",
+    "group": "F",
+    "stage": "Group Stage",
+    "home_score": 5,
+    "away_score": 1
+  },
+  {
+    "home_team": "Tunisia",
+    "away_team": "Japan",
+    "date": "20 June 2026",
+    "time": "10:00 p.m.",
+    "group": "F",
+    "stage": "Group Stage",
+    "home_score": 0,
+    "away_score": 4
+  },
+  {
+    "home_team": "Japan",
+    "away_team": "Sweden",
+    "date": "25 June 2026",
+    "time": "6:00 p.m.",
+    "group": "F",
+    "stage": "Group Stage",
+    "home_score": 1,
+    "away_score": 1
+  },
+  {
+    "home_team": "Tunisia",
+    "away_team": "Netherlands",
+    "date": "25 June 2026",
+    "time": "6:00 p.m.",
+    "group": "F",
+    "stage": "Group Stage",
+    "home_score": 1,
+    "away_score": 3
+  },
+  {
+    "home_team": "Belgium",
+    "away_team": "Egypt",
+    "date": "15 June 2026",
+    "time": "12:00 p.m.",
+    "group": "G",
+    "stage": "Group Stage",
+    "home_score": 1,
+    "away_score": 1
+  },
+  {
+    "home_team": "Iran",
+    "away_team": "New Zealand",
+    "date": "15 June 2026",
+    "time": "6:00 p.m.",
+    "group": "G",
+    "stage": "Group Stage",
+    "home_score": 2,
+    "away_score": 2
+  },
+  {
+    "home_team": "Belgium",
+    "away_team": "Iran",
+    "date": "21 June 2026",
+    "time": "12:00 p.m.",
+    "group": "G",
+    "stage": "Group Stage",
+    "home_score": 0,
+    "away_score": 0
+  },
+  {
+    "home_team": "New Zealand",
+    "away_team": "Egypt",
+    "date": "21 June 2026",
+    "time": "6:00 p.m.",
+    "group": "G",
+    "stage": "Group Stage",
+    "home_score": 1,
+    "away_score": 3
+  },
+  {
+    "home_team": "Egypt",
+    "away_team": "Iran",
+    "date": "26 June 2026",
+    "time": "8:00 p.m.",
+    "group": "G",
+    "stage": "Group Stage",
+    "home_score": 1,
+    "away_score": 1
+  },
+  {
+    "home_team": "New Zealand",
+    "away_team": "Belgium",
+    "date": "26 June 2026",
+    "time": "8:00 p.m.",
+    "group": "G",
+    "stage": "Group Stage",
+    "home_score": 1,
+    "away_score": 5
+  },
+  {
+    "home_team": "Spain",
+    "away_team": "Cape Verde",
+    "date": "15 June 2026",
+    "time": "12:00 p.m.",
+    "group": "H",
+    "stage": "Group Stage",
+    "home_score": 0,
+    "away_score": 0
+  },
+  {
+    "home_team": "Saudi Arabia",
+    "away_team": "Uruguay",
+    "date": "15 June 2026",
+    "time": "6:00 p.m.",
+    "group": "H",
+    "stage": "Group Stage",
+    "home_score": 1,
+    "away_score": 1
+  },
+  {
+    "home_team": "Spain",
+    "away_team": "Saudi Arabia",
+    "date": "21 June 2026",
+    "time": "12:00 p.m.",
+    "group": "H",
+    "stage": "Group Stage",
+    "home_score": 4,
+    "away_score": 0
+  },
+  {
+    "home_team": "Uruguay",
+    "away_team": "Cape Verde",
+    "date": "21 June 2026",
+    "time": "6:00 p.m.",
+    "group": "H",
+    "stage": "Group Stage",
+    "home_score": 2,
+    "away_score": 2
+  },
+  {
+    "home_team": "Cape Verde",
+    "away_team": "Saudi Arabia",
+    "date": "26 June 2026",
+    "time": "7:00 p.m.",
+    "group": "H",
+    "stage": "Group Stage",
+    "home_score": 0,
+    "away_score": 0
+  },
+  {
+    "home_team": "Uruguay",
+    "away_team": "Spain",
+    "date": "26 June 2026",
+    "time": "6:00 p.m.",
+    "group": "H",
+    "stage": "Group Stage",
+    "home_score": 0,
+    "away_score": 1
+  },
+  {
+    "home_team": "France",
+    "away_team": "Senegal",
+    "date": "16 June 2026",
+    "time": "3:00 p.m.",
+    "group": "I",
+    "stage": "Group Stage",
+    "home_score": 3,
+    "away_score": 1
+  },
+  {
+    "home_team": "Iraq",
+    "away_team": "Norway",
+    "date": "16 June 2026",
+    "time": "6:00 p.m.",
+    "group": "I",
+    "stage": "Group Stage",
+    "home_score": 1,
+    "away_score": 4
+  },
+  {
+    "home_team": "France",
+    "away_team": "Iraq",
+    "date": "22 June 2026",
+    "time": "5:00 p.m.",
+    "group": "I",
+    "stage": "Group Stage",
+    "home_score": 3,
+    "away_score": 0
+  },
+  {
+    "home_team": "Norway",
+    "away_team": "Senegal",
+    "date": "22 June 2026",
+    "time": "8:00 p.m.",
+    "group": "I",
+    "stage": "Group Stage",
+    "home_score": 3,
+    "away_score": 2
+  },
+  {
+    "home_team": "Norway",
+    "away_team": "France",
+    "date": "26 June 2026",
+    "time": "3:00 p.m.",
+    "group": "I",
+    "stage": "Group Stage",
+    "home_score": 1,
+    "away_score": 4
+  },
+  {
+    "home_team": "Senegal",
+    "away_team": "Iraq",
+    "date": "26 June 2026",
+    "time": "3:00 p.m.",
+    "group": "I",
+    "stage": "Group Stage",
+    "home_score": 5,
+    "away_score": 0
+  },
+  {
+    "home_team": "Argentina",
+    "away_team": "Algeria",
+    "date": "16 June 2026",
+    "time": "8:00 p.m.",
+    "group": "J",
+    "stage": "Group Stage",
+    "home_score": 3,
+    "away_score": 0
+  },
+  {
+    "home_team": "Austria",
+    "away_team": "Jordan",
+    "date": "16 June 2026",
+    "time": "9:00 p.m.",
+    "group": "J",
+    "stage": "Group Stage",
+    "home_score": 3,
+    "away_score": 1
+  },
+  {
+    "home_team": "Argentina",
+    "away_team": "Austria",
+    "date": "22 June 2026",
+    "time": "12:00 p.m.",
+    "group": "J",
+    "stage": "Group Stage",
+    "home_score": 2,
+    "away_score": 0
+  },
+  {
+    "home_team": "Jordan",
+    "away_team": "Algeria",
+    "date": "22 June 2026",
+    "time": "8:00 p.m.",
+    "group": "J",
+    "stage": "Group Stage",
+    "home_score": 1,
+    "away_score": 2
+  },
+  {
+    "home_team": "Algeria",
+    "away_team": "Austria",
+    "date": "27 June 2026",
+    "time": "9:00 p.m.",
+    "group": "J",
+    "stage": "Group Stage",
+    "home_score": 3,
+    "away_score": 3
+  },
+  {
+    "home_team": "Jordan",
+    "away_team": "Argentina",
+    "date": "27 June 2026",
+    "time": "9:00 p.m.",
+    "group": "J",
+    "stage": "Group Stage",
+    "home_score": 1,
+    "away_score": 3
+  },
+  {
+    "home_team": "Portugal",
+    "away_team": "DR Congo",
+    "date": "17 June 2026",
+    "time": "12:00 p.m.",
+    "group": "K",
+    "stage": "Group Stage",
+    "home_score": 1,
+    "away_score": 1
+  },
+  {
+    "home_team": "Uzbekistan",
+    "away_team": "Colombia",
+    "date": "17 June 2026",
+    "time": "8:00 p.m.",
+    "group": "K",
+    "stage": "Group Stage",
+    "home_score": 1,
+    "away_score": 3
+  },
+  {
+    "home_team": "Portugal",
+    "away_team": "Uzbekistan",
+    "date": "23 June 2026",
+    "time": "12:00 p.m.",
+    "group": "K",
+    "stage": "Group Stage",
+    "home_score": 5,
+    "away_score": 0
+  },
+  {
+    "home_team": "Colombia",
+    "away_team": "DR Congo",
+    "date": "23 June 2026",
+    "time": "8:00 p.m.",
+    "group": "K",
+    "stage": "Group Stage",
+    "home_score": 1,
+    "away_score": 0
+  },
+  {
+    "home_team": "Colombia",
+    "away_team": "Portugal",
+    "date": "27 June 2026",
+    "time": "7:30 p.m.",
+    "group": "K",
+    "stage": "Group Stage",
+    "home_score": 0,
+    "away_score": 0
+  },
+  {
+    "home_team": "DR Congo",
+    "away_team": "Uzbekistan",
+    "date": "27 June 2026",
+    "time": "7:30 p.m.",
+    "group": "K",
+    "stage": "Group Stage",
+    "home_score": 3,
+    "away_score": 1
+  },
+  {
+    "home_team": "England",
+    "away_team": "Croatia",
+    "date": "17 June 2026",
+    "time": "3:00 p.m.",
+    "group": "L",
+    "stage": "Group Stage",
+    "home_score": 4,
+    "away_score": 2
+  },
+  {
+    "home_team": "Ghana",
+    "away_team": "Panama",
+    "date": "17 June 2026",
+    "time": "7:00 p.m.",
+    "group": "L",
+    "stage": "Group Stage",
+    "home_score": 1,
+    "away_score": 0
+  },
+  {
+    "home_team": "England",
+    "away_team": "Ghana",
+    "date": "23 June 2026",
+    "time": "4:00 p.m.",
+    "group": "L",
+    "stage": "Group Stage",
+    "home_score": 0,
+    "away_score": 0
+  },
+  {
+    "home_team": "Panama",
+    "away_team": "Croatia",
+    "date": "23 June 2026",
+    "time": "7:00 p.m.",
+    "group": "L",
+    "stage": "Group Stage",
+    "home_score": 0,
+    "away_score": 1
+  },
+  {
+    "home_team": "Panama",
+    "away_team": "England",
+    "date": "27 June 2026",
+    "time": "5:00 p.m.",
+    "group": "L",
+    "stage": "Group Stage",
+    "home_score": 0,
+    "away_score": 2
+  },
+  {
+    "home_team": "Croatia",
+    "away_team": "Ghana",
+    "date": "27 June 2026",
+    "time": "5:00 p.m.",
+    "group": "L",
+    "stage": "Group Stage",
+    "home_score": 2,
+    "away_score": 1
+  },
+  {
+    "home_team": "South Africa",
+    "away_team": "Canada",
+    "date": "28 June 2026",
+    "time": "12:00 p.m.",
+    "group": "",
+    "stage": "Round of 32",
+    "home_score": 0,
+    "away_score": 1
+  },
+  {
+    "home_team": "Brazil",
+    "away_team": "Japan",
+    "date": "29 June 2026",
+    "time": "12:00 p.m.",
+    "group": "",
+    "stage": "Round of 32",
+    "home_score": 2,
+    "away_score": 1
+  },
+  {
+    "home_team": "South Korea",
+    "away_team": "Egypt",
+    "date": "July 1",
+    "time": "12:00 p.m.",
+    "group": "",
+    "stage": "Round of 32",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Japan",
+    "away_team": "France",
+    "date": "July 1",
+    "time": "15:00 p.m.",
+    "group": "",
+    "stage": "Round of 32",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Uruguay",
+    "away_team": "Jordan",
+    "date": "July 1",
+    "time": "18:00 p.m.",
+    "group": "",
+    "stage": "Round of 32",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Spain",
+    "away_team": "Colombia",
+    "date": "July 1",
+    "time": "21:00 p.m.",
+    "group": "",
+    "stage": "Round of 32",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "United States",
+    "away_team": "Qatar",
+    "date": "July 1",
+    "time": "12:00 p.m.",
+    "group": "",
+    "stage": "Round of 32",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Australia",
+    "away_team": "Ivory Coast",
+    "date": "July 1",
+    "time": "15:00 p.m.",
+    "group": "",
+    "stage": "Round of 32",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Czech Republic",
+    "away_team": "Belgium",
+    "date": "July 1",
+    "time": "18:00 p.m.",
+    "group": "",
+    "stage": "Round of 32",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "DR Congo",
+    "away_team": "Sweden",
+    "date": "July 1",
+    "time": "21:00 p.m.",
+    "group": "",
+    "stage": "Round of 32",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Curaçao",
+    "away_team": "Iran",
+    "date": "July 2",
+    "time": "12:00 p.m.",
+    "group": "",
+    "stage": "Round of 32",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Panama",
+    "away_team": "Saudi Arabia",
+    "date": "July 2",
+    "time": "15:00 p.m.",
+    "group": "",
+    "stage": "Round of 32",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Iraq",
+    "away_team": "Algeria",
+    "date": "July 2",
+    "time": "18:00 p.m.",
+    "group": "",
+    "stage": "Round of 32",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Haiti",
+    "away_team": "Morocco",
+    "date": "July 2",
+    "time": "21:00 p.m.",
+    "group": "",
+    "stage": "Round of 32",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "South Africa",
+    "away_team": "Paraguay",
+    "date": "July 2",
+    "time": "12:00 p.m.",
+    "group": "",
+    "stage": "Round of 32",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Tunisia",
+    "away_team": "Scotland",
+    "date": "July 2",
+    "time": "15:00 p.m.",
+    "group": "",
+    "stage": "Round of 32",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Ghana",
+    "away_team": "Switzerland",
+    "date": "July 2",
+    "time": "18:00 p.m.",
+    "group": "",
+    "stage": "Round of 32",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Canada",
+    "away_team": "Ecuador",
+    "date": "July 2",
+    "time": "21:00 p.m.",
+    "group": "",
+    "stage": "Round of 32",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "South Korea",
+    "away_team": "Egypt",
+    "date": "July 4",
+    "time": "12:00",
+    "group": "",
+    "stage": "Round of 16",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Japan",
+    "away_team": "France",
+    "date": "July 4",
+    "time": "15:00",
+    "group": "",
+    "stage": "Round of 16",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Uruguay",
+    "away_team": "Jordan",
+    "date": "July 4",
+    "time": "18:00",
+    "group": "",
+    "stage": "Round of 16",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Spain",
+    "away_team": "Colombia",
+    "date": "July 4",
+    "time": "21:00",
+    "group": "",
+    "stage": "Round of 16",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "United States",
+    "away_team": "Qatar",
+    "date": "July 5",
+    "time": "12:00",
+    "group": "",
+    "stage": "Round of 16",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Australia",
+    "away_team": "Ivory Coast",
+    "date": "July 5",
+    "time": "15:00",
+    "group": "",
+    "stage": "Round of 16",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Czech Republic",
+    "away_team": "Belgium",
+    "date": "July 5",
+    "time": "18:00",
+    "group": "",
+    "stage": "Round of 16",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "DR Congo",
+    "away_team": "Sweden",
+    "date": "July 5",
+    "time": "21:00",
+    "group": "",
+    "stage": "Round of 16",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "South Korea",
+    "away_team": "Uruguay",
+    "date": "July 7",
+    "time": "15:00",
+    "group": "",
+    "stage": "Quarter-finals",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Egypt",
+    "away_team": "Jordan",
+    "date": "July 7",
+    "time": "18:00",
+    "group": "",
+    "stage": "Quarter-finals",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Japan",
+    "away_team": "Spain",
+    "date": "July 8",
+    "time": "15:00",
+    "group": "",
+    "stage": "Quarter-finals",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "France",
+    "away_team": "Colombia",
+    "date": "July 8",
+    "time": "18:00",
+    "group": "",
+    "stage": "Quarter-finals",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "South Korea",
+    "away_team": "Japan",
+    "date": "July 11",
+    "time": "15:00",
+    "group": "",
+    "stage": "Semi-finals",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Egypt",
+    "away_team": "France",
+    "date": "July 11",
+    "time": "20:00",
+    "group": "",
+    "stage": "Semi-finals",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Uruguay",
+    "away_team": "Jordan",
+    "date": "July 14",
+    "time": "17:00",
+    "group": "",
+    "stage": "Third place",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Spain",
+    "away_team": "Colombia",
+    "date": "July 15",
+    "time": "18:00",
+    "group": "",
+    "stage": "Final",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Iran",
+    "away_team": "Ghana",
+    "date": "July 1",
+    "time": "12:00 p.m.",
+    "group": "",
+    "stage": "Round of 32",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Egypt",
+    "away_team": "Ecuador",
+    "date": "July 1",
+    "time": "3:00 p.m.",
+    "group": "",
+    "stage": "Round of 32",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Jordan",
+    "away_team": "England",
+    "date": "July 1",
+    "time": "6:00 p.m.",
+    "group": "",
+    "stage": "Round of 32",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "South Africa",
+    "away_team": "South Korea",
+    "date": "July 1",
+    "time": "9:00 p.m.",
+    "group": "",
+    "stage": "Round of 32",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Saudi Arabia",
+    "away_team": "Qatar",
+    "date": "July 1",
+    "time": "12:00 p.m.",
+    "group": "",
+    "stage": "Round of 32",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Senegal",
+    "away_team": "Japan",
+    "date": "July 1",
+    "time": "3:00 p.m.",
+    "group": "",
+    "stage": "Round of 32",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Morocco",
+    "away_team": "Panama",
+    "date": "July 1",
+    "time": "6:00 p.m.",
+    "group": "",
+    "stage": "Round of 32",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "France",
+    "away_team": "Algeria",
+    "date": "July 1",
+    "time": "9:00 p.m.",
+    "group": "",
+    "stage": "Round of 32",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Australia",
+    "away_team": "Iraq",
+    "date": "July 2",
+    "time": "12:00 p.m.",
+    "group": "",
+    "stage": "Round of 32",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Brazil",
+    "away_team": "Switzerland",
+    "date": "July 2",
+    "time": "3:00 p.m.",
+    "group": "",
+    "stage": "Round of 32",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Sweden",
+    "away_team": "Colombia",
+    "date": "July 2",
+    "time": "6:00 p.m.",
+    "group": "",
+    "stage": "Round of 32",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Paraguay",
+    "away_team": "Mexico",
+    "date": "July 2",
+    "time": "9:00 p.m.",
+    "group": "",
+    "stage": "Round of 32",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Turkey",
+    "away_team": "Scotland",
+    "date": "July 2",
+    "time": "12:00 p.m.",
+    "group": "",
+    "stage": "Round of 32",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Tunisia",
+    "away_team": "Portugal",
+    "date": "July 2",
+    "time": "3:00 p.m.",
+    "group": "",
+    "stage": "Round of 32",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "DR Congo",
+    "away_team": "Uruguay",
+    "date": "July 2",
+    "time": "6:00 p.m.",
+    "group": "",
+    "stage": "Round of 32",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Ivory Coast",
+    "away_team": "United States",
+    "date": "July 2",
+    "time": "9:00 p.m.",
+    "group": "",
+    "stage": "Round of 32",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Iran",
+    "away_team": "Saudi Arabia",
+    "date": "July 4",
+    "time": "12:00 p.m.",
+    "group": "",
+    "stage": "Round of 16",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Ghana",
+    "away_team": "Qatar",
+    "date": "July 4",
+    "time": "3:00 p.m.",
+    "group": "",
+    "stage": "Round of 16",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Egypt",
+    "away_team": "Senegal",
+    "date": "July 4",
+    "time": "6:00 p.m.",
+    "group": "",
+    "stage": "Round of 16",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Ecuador",
+    "away_team": "Japan",
+    "date": "July 4",
+    "time": "9:00 p.m.",
+    "group": "",
+    "stage": "Round of 16",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Jordan",
+    "away_team": "Morocco",
+    "date": "July 5",
+    "time": "12:00 p.m.",
+    "group": "",
+    "stage": "Round of 16",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "England",
+    "away_team": "Panama",
+    "date": "July 5",
+    "time": "3:00 p.m.",
+    "group": "",
+    "stage": "Round of 16",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "South Africa",
+    "away_team": "France",
+    "date": "July 5",
+    "time": "6:00 p.m.",
+    "group": "",
+    "stage": "Round of 16",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "South Korea",
+    "away_team": "Algeria",
+    "date": "July 5",
+    "time": "9:00 p.m.",
+    "group": "",
+    "stage": "Round of 16",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Iran",
+    "away_team": "Jordan",
+    "date": "July 7",
+    "time": "3:00 p.m.",
+    "group": "",
+    "stage": "Quarter-finals",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Ghana",
+    "away_team": "England",
+    "date": "July 7",
+    "time": "6:00 p.m.",
+    "group": "",
+    "stage": "Quarter-finals",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Egypt",
+    "away_team": "South Africa",
+    "date": "July 8",
+    "time": "3:00 p.m.",
+    "group": "",
+    "stage": "Quarter-finals",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Ecuador",
+    "away_team": "South Korea",
+    "date": "July 8",
+    "time": "6:00 p.m.",
+    "group": "",
+    "stage": "Quarter-finals",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Iran",
+    "away_team": "Egypt",
+    "date": "July 11",
+    "time": "3:00 p.m.",
+    "group": "",
+    "stage": "Semi-finals",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Ghana",
+    "away_team": "Ecuador",
+    "date": "July 11",
+    "time": "8:00 p.m.",
+    "group": "",
+    "stage": "Semi-finals",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "Jordan",
+    "away_team": "England",
+    "date": "July 14",
+    "time": "5:00 p.m.",
+    "group": "",
+    "stage": "Third place",
+    "match_type": "fixture"
+  },
+  {
+    "home_team": "South Africa",
+    "away_team": "South Korea",
+    "date": "July 15",
+    "time": "6:00 p.m.",
+    "group": "",
+    "stage": "Final",
+    "match_type": "fixture"
+  }
+]

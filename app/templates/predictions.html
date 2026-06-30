@@ -14,7 +14,7 @@
                 vs 
                 {{ m.away_team.name }} {{ m.away_team.flag_emoji }}
             </h3>
-            <p class="match-datetime" data-utc="{{ m.match_datetime }}">{{ m.match_datetime }}</p>
+            <p class="match-datetime" data-utc="{{ m.match_datetime }}">{{ m.match_datetime|egypt_time }}</p>
             <span class="match-status-badge">{{ m.status }}</span>
         </div>
         <div class="prediction-details">

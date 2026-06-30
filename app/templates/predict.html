@@ -7,7 +7,7 @@
     <div class="predict-header">
         <h2>{{ match.home_team.flag_emoji }} {{ match.home_team.name }} vs {{ match.away_team.name }} {{ match.away_team.flag_emoji }}</h2>
         <p>{{ match.stage }}{% if match.group_letter %} - Group {{ match.group_letter }}{% endif %}</p>
-        <p class="match-datetime" data-utc="{{ match.match_datetime }}">{{ match.match_datetime }}</p>
+        <p class="match-datetime" data-utc="{{ match.match_datetime }}">{{ match.match_datetime|egypt_time }}</p>
     </div>
 
     {% if locked %}
