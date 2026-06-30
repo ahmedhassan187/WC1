@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %}Leaderboard - WC Predictions{% endblock %}
+{% block content %}
+<h1>Leaderboard</h1>
+
+{% if scores %}
+<table class="leaderboard-table">
+    <thead>
+        <tr>
+            <th>Rank</th>
+            <th>Player</th>
+            <th>Points</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for s in scores %}
+        <tr{% if user and s.email == user.email %} class="current-user"{% endif %}>
+            <td class="rank">{{ loop.index }}</td>
+            <td>{{ s.email }}</td>
+            <td class="points">{{ s.total_points }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p class="empty-state">No scores yet. Predictions are scored after match results are entered.</p>
+{% endif %}
+
+{% if user %}
+<form method="POST" action="/admin/calculate-scores" style="margin-top: 2rem;">
+    <button type="submit" class="btn btn-outline">Recalculate Scores</button>
+</form>
+{% endif %}
+{% endblock %}

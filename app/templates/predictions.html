@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}My Predictions - WC Predictions{% endblock %}
+{% block content %}
+<h1>My Predictions</h1>
+
+{% if predictions %}
+<div class="predictions-list">
+    {% for p in predictions %}
+    <div class="prediction-card">
+        <div class="prediction-match">
+            {% set m = p.match %}
+            <h3>
+                {{ m.home_team.flag_emoji }} {{ m.home_team.name }} 
+                vs 
+                {{ m.away_team.name }} {{ m.away_team.flag_emoji }}
+            </h3>
+            <p class="match-datetime" data-utc="{{ m.match_datetime }}">{{ m.match_datetime }}</p>
+            <span class="match-status-badge">{{ m.status }}</span>
+        </div>
+        <div class="prediction-details">
+            <div class="pred-outcome">
+                <strong>Prediction:</strong>
+                {% if p.chosen_winner == 'home' %}
+                    {{ m.home_team.name }} wins
+                {% elif p.chosen_winner == 'draw' %}
+                    Draw
+                {% else %}
+                    {{ m.away_team.name }} wins
+                {% endif %}
+            </div>
+            <div class="pred-score">
+                <strong>Score:</strong> {{ p.home_score }} - {{ p.away_score }}
+            </div>
+            {% if p.home_scorers %}
+            <div class="pred-scorers">
+                <strong>{{ m.home_team.name }} scorers:</strong> {{ p.home_scorers | join(', ') }}
+            </div>
+            {% endif %}
+            {% if p.away_scorers %}
+            <div class="pred-scorers">
+                <strong>{{ m.away_team.name }} scorers:</strong> {{ p.away_scorers | join(', ') }}
+            </div>
+            {% endif %}
+        </div>
+        {% if m.status != 'finished' %}
+        <a href="/matches/{{ m.id }}/predict" class="btn btn-sm btn-outline">Edit</a>
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+{% else %}
+<p class="empty-state">You haven't made any predictions yet. <a href="/">Go to matches</a></p>
+{% endif %}
+{% endblock %}

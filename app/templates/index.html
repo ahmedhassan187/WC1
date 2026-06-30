@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block title %}WC Predictions{% endblock %}
+{% block content %}
+<h1>World Cup Predictions</h1>
+
+{% if not user %}
+<div class="hero">
+    <p>Make your match predictions and compete on the leaderboard!</p>
+    <a href="/register" class="btn btn-primary">Get Started</a>
+</div>
+{% endif %}
+
+{% if in_progress %}
+<h2>Live Matches</h2>
+<div class="matches-grid">
+    {% for m in in_progress %}
+    <div class="match-card match-live">
+        <div class="match-status">LIVE</div>
+        <div class="match-teams">
+            <div class="team">
+                <span class="flag">{{ m.home_team.flag_emoji }}</span>
+                <span class="name">{{ m.home_team.name }}</span>
+            </div>
+            <span class="vs">vs</span>
+            <div class="team">
+                <span class="flag">{{ m.away_team.flag_emoji }}</span>
+                <span class="name">{{ m.away_team.name }}</span>
+            </div>
+        </div>
+        <div class="match-info">
+            <span>{{ m.stage }}{% if m.group_letter %} - Group {{ m.group_letter }}{% endif %}</span>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+{% if upcoming %}
+<h2>Upcoming Matches</h2>
+<div class="matches-grid">
+    {% for m in upcoming %}
+    <div class="match-card">
+        <div class="match-date">{{ m.match_datetime }}</div>
+        <div class="match-teams">
+            <div class="team">
+                <span class="flag">{{ m.home_team.flag_emoji }}</span>
+                <span class="name">{{ m.home_team.name }}</span>
+            </div>
+            <span class="vs">vs</span>
+            <div class="team">
+                <span class="flag">{{ m.away_team.flag_emoji }}</span>
+                <span class="name">{{ m.away_team.name }}</span>
+            </div>
+        </div>
+        <div class="match-info">
+            <span>{{ m.stage }}{% if m.group_letter %} - Group {{ m.group_letter }}{% endif %}</span>
+            {% if m.venue %}<span class="venue">{{ m.venue }}</span>{% endif %}
+        </div>
+        {% if user %}
+            {% if m.has_prediction %}
+                <a href="/matches/{{ m.id }}/predict" class="btn btn-sm btn-outline">Edit Prediction</a>
+            {% else %}
+                <a href="/matches/{{ m.id }}/predict" class="btn btn-sm btn-primary">Make Prediction</a>
+            {% endif %}
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+{% if finished %}
+<h2>Finished Matches</h2>
+<div class="matches-grid">
+    {% for m in finished %}
+    <div class="match-card match-finished">
+        <div class="match-teams">
+            <div class="team">
+                <span class="flag">{{ m.home_team.flag_emoji }}</span>
+                <span class="name">{{ m.home_team.name }}</span>
+            </div>
+            <span class="score">{{ m.home_score }} - {{ m.away_score }}</span>
+            <div class="team">
+                <span class="flag">{{ m.away_team.flag_emoji }}</span>
+                <span class="name">{{ m.away_team.name }}</span>
+            </div>
+        </div>
+        <div class="match-info">
+            <span>{{ m.stage }}{% if m.group_letter %} - Group {{ m.group_letter }}{% endif %}</span>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
+
+{% if not upcoming and not in_progress and not finished %}
+<p class="empty-state">No matches scheduled yet. Check back later!</p>
+{% endif %}
+{% endblock %}

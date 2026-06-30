@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}WC Predictions{% endblock %}</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="/" class="nav-brand">WC Predictions</a>
+        <div class="nav-links">
+            {% if user %}
+                <a href="/predictions">My Predictions</a>
+                <a href="/leaderboard">Leaderboard</a>
+                <span class="nav-email">{{ user.email }}</span>
+                <a href="/logout" class="btn btn-sm btn-outline">Logout</a>
+            {% else %}
+                <a href="/login" class="btn btn-sm">Login</a>
+                <a href="/register" class="btn btn-sm btn-primary">Register</a>
+            {% endif %}
+        </div>
+    </nav>
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

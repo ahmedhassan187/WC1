@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+{% block title %}Predict: {{ match.home_team.name }} vs {{ match.away_team.name }} - WC Predictions{% endblock %}
+{% block content %}
+<div class="predict-page">
+    <a href="/" class="back-link">&larr; Back to matches</a>
+
+    <div class="predict-header">
+        <h2>{{ match.home_team.flag_emoji }} {{ match.home_team.name }} vs {{ match.away_team.name }} {{ match.away_team.flag_emoji }}</h2>
+        <p>{{ match.stage }}{% if match.group_letter %} - Group {{ match.group_letter }}{% endif %}</p>
+        <p class="match-datetime" data-utc="{{ match.match_datetime }}">{{ match.match_datetime }}</p>
+    </div>
+
+    {% if locked %}
+        <div class="alert alert-warning">
+            This match has started. Predictions are locked.
+            {% if existing %}
+                <p>Your prediction: 
+                    {% if existing.chosen_winner == 'home' %}{{ match.home_team.name }} wins
+                    {% elif existing.chosen_winner == 'draw' %}Draw
+                    {% else %}{{ match.away_team.name }} wins{% endif %}
+                    {{ existing.home_score }} - {{ existing.away_score }}
+                </p>
+            {% endif %}
+        </div>
+    {% else %}
+        {% if existing %}
+            <div class="alert alert-info">You have an existing prediction. Submitting again will overwrite it.</div>
+        {% endif %}
+
+        <form method="POST" action="/matches/{{ match.id }}/predict" id="predict-form" class="predict-form">
+            <h3>Who will win?</h3>
+            <div class="winner-select">
+                <label class="winner-option">
+                    <input type="radio" name="chosen_winner" value="home" 
+                        {% if existing and existing.chosen_winner == 'home' %}checked{% endif %} required>
+                    <span class="winner-btn">
+                        {{ match.home_team.flag_emoji }} {{ match.home_team.name }} wins
+                    </span>
+                </label>
+                <label class="winner-option">
+                    <input type="radio" name="chosen_winner" value="draw"
+                        {% if existing and existing.chosen_winner == 'draw' %}checked{% endif %}>
+                    <span class="winner-btn">Draw</span>
+                </label>
+                <label class="winner-option">
+                    <input type="radio" name="chosen_winner" value="away"
+                        {% if existing and existing.chosen_winner == 'away' %}checked{% endif %}>
+                    <span class="winner-btn">
+                        {{ match.away_team.name }} wins {{ match.away_team.flag_emoji }}
+                    </span>
+                </label>
+            </div>
+
+            <h3>What will the score be?</h3>
+            <div class="score-input">
+                <span>{{ match.home_team.name }}</span>
+                <input type="number" name="home_score" id="home_score" min="0" max="20" required
+                    value="{{ existing.home_score if existing else '' }}">
+                <span class="dash">-</span>
+                <input type="number" name="away_score" id="away_score" min="0" max="20" required
+                    value="{{ existing.away_score if existing else '' }}">
+                <span>{{ match.away_team.name }}</span>
+            </div>
+            <div id="score-error" class="alert alert-error" style="display:none;"></div>
+
+            <h3>Goal Scorers (optional)</h3>
+            <p class="hint">Select the players you think will score. The number of scorers should match the score you entered.</p>
+
+            {% if home_players %}
+            <div class="scorers-section">
+                <h4>{{ match.home_team.flag_emoji }} {{ match.home_team.name }} scorers</h4>
+                <div class="scorers-grid" id="home-scorers">
+                    {% for player in home_players %}
+                    <label class="scorer-check">
+                        <input type="checkbox" name="home_scorers_checkbox" value="{{ player.name }}"
+                            {% if existing and player.name in (existing.home_scorers or []) %}checked{% endif %}>
+                        <span>{{ player.name }} <small>({{ player.position }})</small></span>
+                    </label>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            {% if away_players %}
+            <div class="scorers-section">
+                <h4>{{ match.away_team.flag_emoji }} {{ match.away_team.name }} scorers</h4>
+                <div class="scorers-grid" id="away-scorers">
+                    {% for player in away_players %}
+                    <label class="scorer-check">
+                        <input type="checkbox" name="away_scorers_checkbox" value="{{ player.name }}"
+                            {% if existing and player.name in (existing.away_scorers or []) %}checked{% endif %}>
+                        <span>{{ player.name }} <small>({{ player.position }})</small></span>
+                    </label>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
+            <input type="hidden" name="home_scorers" id="home_scorers_hidden">
+            <input type="hidden" name="away_scorers" id="away_scorers_hidden">
+
+            <button type="submit" class="btn btn-primary btn-block btn-lg" id="submit-btn">Submit Prediction</button>
+        </form>
+    {% endif %}
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('predict-form');
+    if (!form) return;
+
+    const homeScore = document.getElementById('home_score');
+    const awayScore = document.getElementById('away_score');
+    const scoreError = document.getElementById('score-error');
+    const homeHidden = document.getElementById('home_scorers_hidden');
+    const awayHidden = document.getElementById('away_scorers_hidden');
+    const submitBtn = document.getElementById('submit-btn');
+    const winnerRadios = form.querySelectorAll('input[name="chosen_winner"]');
+
+    function validateScore() {
+        const chosen = form.querySelector('input[name="chosen_winner"]:checked');
+        const h = parseInt(homeScore.value);
+        const a = parseInt(awayScore.value);
+        
+        if (isNaN(h) || isNaN(a) || !chosen) {
+            scoreError.style.display = 'none';
+            return true;
+        }
+
+        if (chosen.value === 'home' && h <= a) {
+            scoreError.textContent = 'Home team score must be greater for a home win.';
+            scoreError.style.display = 'block';
+            return false;
+        }
+        if (chosen.value === 'draw' && h !== a) {
+            scoreError.textContent = 'Scores must be equal for a draw.';
+            scoreError.style.display = 'block';
+            return false;
+        }
+        if (chosen.value === 'away' && a <= h) {
+            scoreError.textContent = 'Away team score must be greater for an away win.';
+            scoreError.style.display = 'block';
+            return false;
+        }
+        scoreError.style.display = 'none';
+        return true;
+    }
+
+    function collectScorers() {
+        const homeChecks = form.querySelectorAll('input[name="home_scorers_checkbox"]:checked');
+        const awayChecks = form.querySelectorAll('input[name="away_scorers_checkbox"]:checked');
+        homeHidden.value = Array.from(homeChecks).map(c => c.value).join(',');
+        awayHidden.value = Array.from(awayChecks).map(c => c.value).join(',');
+    }
+
+    winnerRadios.forEach(r => r.addEventListener('change', validateScore));
+    homeScore.addEventListener('input', validateScore);
+    awayScore.addEventListener('input', validateScore);
+
+    form.addEventListener('submit', function(e) {
+        collectScorers();
+        if (!validateScore()) {
+            e.preventDefault();
+        }
+    });
+});
+</script>
+{% endblock %}
