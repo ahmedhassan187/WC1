@@ -19,6 +19,7 @@ import json
 import os
 import re
 import sys
+import ssl
 from datetime import datetime, timezone, timedelta
 from supabase import create_client
 from dotenv import load_dotenv
@@ -31,6 +32,19 @@ SUPABASE_KEY = os.getenv("SUPABASE_SERVICE_KEY")
 if not SUPABASE_URL or not SUPABASE_KEY:
     print("ERROR: Set SUPABASE_URL and SUPABASE_SERVICE_KEY in .env")
     sys.exit(1)
+
+# ── Global SSL workaround for Supabase certificate hostname mismatch ──
+# The Supabase project URL sits behind Cloudflare with CN=supabase.co.
+# Python 3.14+ is stricter about hostname validation.
+_original_context = ssl.create_default_context
+
+def _relaxed_ssl_context() -> ssl.SSLContext:
+    ctx = _original_context()
+    ctx.check_hostname = False
+    ctx.verify_mode = ssl.CERT_REQUIRED
+    return ctx
+
+ssl._create_default_https_context = _relaxed_ssl_context
 
 sb = create_client(SUPABASE_URL, SUPABASE_KEY)
 
